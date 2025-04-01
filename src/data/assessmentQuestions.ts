@@ -121,10 +121,21 @@ export const assessmentQuestions: AssessmentQuestion[] = [
       rarely: 1
     }
   },
+  {
+    id: 10,
+    category: "communication",
+    question: "How frequently do you and your partner discuss your future together?",
+    answerType: "options",
+    options: [
+      { value: "often", text: "Often", points: 5 },
+      { value: "occasionally", text: "Occasionally", points: 3 },
+      { value: "rarely", text: "Rarely", points: 1 }
+    ]
+  },
   
   // Spiritual Connection
   {
-    id: 10,
+    id: 11,
     category: "spiritual",
     question: "Do you pray together regularly?",
     answerType: "options",
@@ -135,7 +146,7 @@ export const assessmentQuestions: AssessmentQuestion[] = [
     ]
   },
   {
-    id: 11,
+    id: 12,
     category: "spiritual",
     question: "How often do you make dua for your relationship?",
     answerType: "options",
@@ -145,10 +156,21 @@ export const assessmentQuestions: AssessmentQuestion[] = [
       { value: "rarely", text: "Rarely", points: 1 }
     ]
   },
+  {
+    id: 13,
+    category: "spiritual",
+    question: "Do you study or discuss Islamic topics together?",
+    answerType: "scale",
+    scalePoints: {
+      always: 5,
+      sometimes: 3,
+      rarely: 1
+    }
+  },
   
   // Conflict Resolution
   {
-    id: 12,
+    id: 14,
     category: "conflict",
     question: "How do you handle disagreements?",
     answerType: "options",
@@ -159,9 +181,20 @@ export const assessmentQuestions: AssessmentQuestion[] = [
     ]
   },
   {
-    id: 13,
+    id: 15,
     category: "conflict",
     question: "Do you resolve conflicts within a day?",
+    answerType: "scale",
+    scalePoints: {
+      always: 5,
+      sometimes: 3,
+      rarely: 1
+    }
+  },
+  {
+    id: 16,
+    category: "conflict",
+    question: "Do you approach conflicts with the intention to understand rather than win?",
     answerType: "scale",
     scalePoints: {
       always: 5,
@@ -172,7 +205,7 @@ export const assessmentQuestions: AssessmentQuestion[] = [
   
   // Shared Goals and Lifestyle
   {
-    id: 14,
+    id: 17,
     category: "goals",
     question: "Do you have aligned goals for your future?",
     answerType: "options",
@@ -183,7 +216,7 @@ export const assessmentQuestions: AssessmentQuestion[] = [
     ]
   },
   {
-    id: 15,
+    id: 18,
     category: "goals",
     question: "How often do you spend quality time together?",
     answerType: "options",
@@ -193,12 +226,34 @@ export const assessmentQuestions: AssessmentQuestion[] = [
       { value: "rarely", text: "Rarely", points: 1 }
     ]
   },
+  {
+    id: 19,
+    category: "goals",
+    question: "Do you support each other's personal growth and ambitions?",
+    answerType: "scale",
+    scalePoints: {
+      always: 5,
+      sometimes: 3,
+      rarely: 1
+    }
+  },
   
   // Emotional Intimacy
   {
-    id: 16,
+    id: 20,
     category: "emotional",
     question: "Do you feel emotionally supported by your partner?",
+    answerType: "scale",
+    scalePoints: {
+      always: 5,
+      sometimes: 3,
+      rarely: 1
+    }
+  },
+  {
+    id: 21,
+    category: "emotional",
+    question: "Do you express appreciation and gratitude to each other regularly?",
     answerType: "scale",
     scalePoints: {
       always: 5,
@@ -209,9 +264,20 @@ export const assessmentQuestions: AssessmentQuestion[] = [
   
   // Financial Harmony
   {
-    id: 17,
+    id: 22,
     category: "financial",
     question: "Do you agree on financial decisions?",
+    answerType: "scale",
+    scalePoints: {
+      always: 5,
+      sometimes: 3,
+      rarely: 1
+    }
+  },
+  {
+    id: 23,
+    category: "financial",
+    question: "Do you have open discussions about money without conflict?",
     answerType: "scale",
     scalePoints: {
       always: 5,

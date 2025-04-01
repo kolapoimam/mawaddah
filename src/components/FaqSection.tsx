@@ -4,23 +4,43 @@ import { useState } from 'react';
 const faqs = [
   {
     question: "What is Mawaddah?",
-    answer: "Mawaddah is a free tool for Muslim couples to assess their relationship health and receive Islamically grounded advice."
+    answer: "Mawaddah is a free tool for Muslim couples to assess their relationship health and receive Islamically grounded advice. Named after the Arabic word for 'abundant love' mentioned in the Quran (30:21), our platform helps couples nurture their bond with love and mercy."
   },
   {
     question: "Do I need to sign up?",
-    answer: "No! You can take the assessment without signing up. Just provide an email to receive the full report if you choose to unlock it."
+    answer: "No! You can take the assessment without signing up. Just provide an email to receive the full report if you choose to unlock it. We believe in making relationship support accessible without barriers."
   },
   {
     question: "Is the assessment really free?",
-    answer: "Yes! The assessment and basic report are free. You can unlock a detailed report for a small fee."
+    answer: "Yes! The assessment and basic report are completely free. You can unlock a detailed report for a small fee of ₦5,000, which provides in-depth analysis and personalized recommendations."
   },
   {
     question: "How is my data protected?",
-    answer: "We don't store sensitive data. The assessment runs locally in your browser, and we only collect your email if you opt for the full report."
+    answer: "We prioritize your privacy. The assessment runs locally in your browser, and we don't store your responses on our servers. We only collect your email if you opt for the full report, and it's solely used for delivering the report to you."
   },
   {
     question: "What if my score is low?",
-    answer: "You'll get tips to improve your relationship. More support features, like counselor connections, are coming soon!"
+    answer: "A low score doesn't mean your relationship is doomed. You'll receive targeted tips to address specific areas that need improvement. We believe every relationship can grow with the right guidance and effort. More support features, like counselor connections, are coming soon!"
+  },
+  {
+    question: "How long does the assessment take?",
+    answer: "The assessment takes approximately 5-10 minutes to complete. We've designed it to be thorough yet concise, respecting your time while gathering meaningful insights about your relationship."
+  },
+  {
+    question: "Can we take the assessment together as a couple?",
+    answer: "Yes! In fact, we encourage couples to take the assessment together. It can open up valuable conversations and provide a shared understanding of your relationship dynamics."
+  },
+  {
+    question: "Is Mawaddah only for married couples?",
+    answer: "Mawaddah is designed for both married and engaged Muslim couples. If you're engaged, the assessment can help you identify areas to discuss before marriage. If you're married, it can help strengthen your existing bond."
+  },
+  {
+    question: "What topics does the assessment cover?",
+    answer: "The assessment covers key relationship areas including communication, spiritual connection, conflict resolution, shared goals, emotional intimacy, and financial harmony. These are fundamental aspects that contribute to a healthy Islamic marriage."
+  },
+  {
+    question: "How often should we take the assessment?",
+    answer: "We recommend taking the assessment every 3-6 months to track your progress and identify new areas for growth. Relationships evolve, and regular check-ins can help you stay connected and address emerging challenges."
   }
 ];
 
@@ -78,7 +98,7 @@ const FaqSection = () => {
               <div
                 id={`faq-answer-${index}`}
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-40' : 'max-h-0'
+                  openIndex === index ? 'max-h-96' : 'max-h-0'
                 }`}
               >
                 <p className="p-5 bg-muted/50 dark:bg-mawaddah-green text-muted-foreground dark:text-mawaddah-gold/80">

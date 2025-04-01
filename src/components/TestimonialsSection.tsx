@@ -4,21 +4,38 @@ import { useState, useEffect } from 'react';
 const testimonials = [
   {
     id: 1,
-    quote: "The assessment gave us a clear picture of our relationship. The tips were so practical!",
+    quote: "The assessment gave us a clear picture of our relationship. The tips were so practical and rooted in Islamic teachings!",
     author: "Fatima & Ahmed, Lagos",
-    rating: 5
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJsYWNrJTIwbXVzbGltJTIwY291cGxlfGVufDB8fDB8fHww"
   },
   {
     id: 2,
-    quote: "We loved the Islamic focus. It helped us reconnect through prayer.",
+    quote: "We loved the Islamic focus of Mawaddah. It helped us reconnect through prayer and improved our spiritual bond.",
     author: "Zainab & Yusuf, Abuja",
-    rating: 5
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1606216794074-735e91dafa5e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fGFmcmljYW4lMjBjb3VwbGV8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 3,
-    quote: "The full report was worth every Naira. We're closer than ever!",
+    quote: "The full report was worth every Naira! The personalized Islamic guidance really helped us navigate our differences.",
     author: "Amina & Ibrahim, Kano",
-    rating: 5
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1583975235603-b10252029af4?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: 4,
+    quote: "After 7 years of marriage, we discovered new aspects of our relationship through the assessment. It was eye-opening!",
+    author: "Aisha & Muhammad, Kaduna",
+    rating: 4,
+    image: "https://images.unsplash.com/photo-1621787279751-2525faa8559f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGFmcmljYW4lMjBjb3VwbGV8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    id: 5,
+    quote: "As newlyweds, this assessment helped us set healthy patterns from the beginning. The Islamic foundation makes it unique.",
+    author: "Khadija & Hassan, Port Harcourt",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1624397640148-949b1732bb0a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWZyaWNhbiUyMGNvdXBsZXxlbnwwfHwwfHx8MA%3D%3D"
   }
 ];
 
@@ -74,6 +91,17 @@ const TestimonialsSection = () => {
                     <div className="flex justify-center mb-4">
                       {renderRatingStars(testimonial.rating)}
                     </div>
+                    
+                    {testimonial.image && (
+                      <div className="mb-6 flex justify-center">
+                        <img 
+                          src={testimonial.image} 
+                          alt={`${testimonial.author}`}
+                          className="w-24 h-24 object-cover rounded-full border-2 border-mawaddah-gold"
+                        />
+                      </div>
+                    )}
+                    
                     <blockquote className="text-xl italic text-center mb-6 text-primary dark:text-mawaddah-gold">
                       "{testimonial.quote}"
                     </blockquote>

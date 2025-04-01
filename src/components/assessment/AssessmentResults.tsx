@@ -1,8 +1,10 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Mail } from 'lucide-react';
+import { Heart, Mail, Share2, Download, Copy, Check } from 'lucide-react';
 import { AssessmentResult } from './AssessmentForm';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const AssessmentResults = () => {
   const [result, setResult] = useState<AssessmentResult | null>(null);
@@ -10,6 +12,8 @@ const AssessmentResults = () => {
   const [email, setEmail] = useState('');
   const [paymentProcessing, setPaymentProcessing] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     // Get result from session storage
@@ -80,9 +84,65 @@ const AssessmentResults = () => {
     }, 2000);
   };
   
+  const handleDownloadImage = async () => {
+    if (!resultsRef.current) return;
+    
+    try {
+      const canvas = await html2canvas(resultsRef.current, {
+        scale: 2,
+        backgroundColor: null,
+      });
+      
+      const dataUrl = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.download = `mawaddah-results-${new Date().toISOString().split('T')[0]}.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (error) {
+      console.error('Error downloading image:', error);
+    }
+  };
+  
+  const handleDownloadPdf = async () => {
+    if (!resultsRef.current) return;
+    
+    try {
+      const canvas = await html2canvas(resultsRef.current, {
+        scale: 2,
+        backgroundColor: null,
+      });
+      
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4',
+      });
+      
+      const imgWidth = 210; // A4 width in mm
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      
+      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      pdf.save(`mawaddah-results-${new Date().toISOString().split('T')[0]}.pdf`);
+    } catch (error) {
+      console.error('Error downloading PDF:', error);
+    }
+  };
+  
+  const shareText = `I scored ${percentage}% on Mawaddah's Couple Health Assessment! My relationship is in the "${categoryText}" category. Take the free assessment at https://usemawaddah.com #Mawaddah #CoupleHealth`;
+  
+  const handleCopyShareText = () => {
+    navigator.clipboard.writeText(shareText)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch(err => console.error('Failed to copy text:', err));
+  };
+  
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="bg-white dark:bg-mawaddah-green-dark shadow-lg rounded-xl overflow-hidden border border-muted dark:border-mawaddah-green-light/20">
+      <div ref={resultsRef} className="bg-white dark:bg-mawaddah-green-dark shadow-lg rounded-xl overflow-hidden border border-muted dark:border-mawaddah-green-light/20">
         {/* Header */}
         <div className="bg-mawaddah-green dark:bg-mawaddah-green-light/10 text-white p-6 text-center">
           <h2 className="calligraphy-heading text-3xl mb-2">Your Couple Health Results</h2>
@@ -162,6 +222,45 @@ const AssessmentResults = () => {
             >
               Unlock Full Report - ₦5,000
             </button>
+          </div>
+          
+          {/* Share and Download Section */}
+          <div className="p-6 bg-mawaddah-green/10 dark:bg-mawaddah-green-light/10 rounded-lg mb-6">
+            <h4 className="text-lg font-semibold mb-4 text-primary dark:text-mawaddah-gold flex items-center">
+              <Share2 className="mr-2" size={20} />
+              Share Your Results
+            </h4>
+            
+            <div className="bg-white dark:bg-mawaddah-green-dark p-3 rounded border border-muted dark:border-mawaddah-green-light/20 mb-4 flex justify-between items-center">
+              <p className="text-sm text-muted-foreground dark:text-mawaddah-gold/70 mr-2">
+                {shareText}
+              </p>
+              <button 
+                onClick={handleCopyShareText} 
+                className="flex items-center justify-center p-2 hover:bg-muted dark:hover:bg-mawaddah-green rounded-full"
+                aria-label="Copy share text"
+              >
+                {copied ? <Check size={18} className="text-green-500" /> : <Copy size={18} className="text-mawaddah-gold" />}
+              </button>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+              <button 
+                onClick={handleDownloadImage}
+                className="flex-1 btn-secondary flex items-center justify-center"
+              >
+                <Download size={18} className="mr-2" />
+                Download as Image
+              </button>
+              
+              <button 
+                onClick={handleDownloadPdf}
+                className="flex-1 btn-secondary flex items-center justify-center"
+              >
+                <Download size={18} className="mr-2" />
+                Download as PDF
+              </button>
+            </div>
           </div>
           
           <div className="text-center">

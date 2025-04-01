@@ -20,8 +20,8 @@ const IntroSection = () => {
               </p>
               <div className="mt-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1583975235603-b10252029af4?auto=format&fit=crop&q=80&w=1470" 
-                  alt="Muslim couple" 
+                  src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?w=800&auto=format&fit=crop&q=80" 
+                  alt="Muslim couple smiling together" 
                   className="w-full h-48 md:h-64 object-cover rounded-xl shadow-md"
                 />
               </div>

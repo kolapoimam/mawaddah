@@ -7,7 +7,7 @@ const Faq = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-grow py-12 px-4">
+      <main className="flex-grow py-12 px-4 islamic-pattern">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h1 className="calligraphy-heading text-3xl md:text-4xl mb-4 text-primary dark:text-mawaddah-gold">
@@ -20,19 +20,29 @@ const Faq = () => {
           
           <FaqSection />
           
-          <div className="max-w-2xl mx-auto mt-12 text-center">
+          <div className="max-w-2xl mx-auto mt-16 text-center bg-white dark:bg-mawaddah-green-dark p-8 rounded-xl shadow-lg">
             <h2 className="text-xl font-semibold mb-4 text-primary dark:text-mawaddah-gold">
               Still have questions?
             </h2>
             <p className="text-muted-foreground dark:text-mawaddah-gold/70 mb-6">
               Feel free to reach out to us directly. We're here to help!
             </p>
-            <a 
-              href="mailto:info@usemawaddah.com" 
-              className="btn-primary inline-block"
-            >
-              Contact Us
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="mailto:info@usemawaddah.com" 
+                className="btn-primary inline-block"
+              >
+                Email Us
+              </a>
+              <a 
+                href="https://wa.me/2348000000000" 
+                className="btn-accent inline-block"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp Support
+              </a>
+            </div>
           </div>
         </div>
       </main>
