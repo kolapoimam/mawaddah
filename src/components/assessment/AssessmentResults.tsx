@@ -43,29 +43,38 @@ const AssessmentResults = () => {
   let resultColor = '';
   let resultTips = [];
   
-  if (percentage >= 80) {
+  // Expanded categories with more precise categorizations
+  if (percentage >= 85) {
+    categoryText = 'Exemplary';
+    resultColor = 'bg-emerald-500';
+    resultTips = [
+      "MashaAllah! Your relationship exemplifies the beauty of Islamic marriage.",
+      "Continue strengthening your bond by increasing your acts of worship together.",
+      "Consider mentoring other couples in your community who may benefit from your experience."
+    ];
+  } else if (percentage >= 70 && percentage < 85) {
     categoryText = 'Strong';
     resultColor = 'bg-green-500';
     resultTips = [
-      "MashaAllah! Your relationship has a solid foundation.",
-      "Keep nurturing your bond by praying Tahajjud together.",
-      "Consider sharing your successful practices with other couples."
+      "Alhamdulillah, you have established a strong foundation in your marriage.",
+      "Schedule regular quality time to maintain your emotional connection.",
+      "Work together on deepening your spiritual bond through shared Islamic practices."
     ];
-  } else if (percentage >= 50) {
-    categoryText = 'Needs Nurturing';
+  } else if (percentage >= 50 && percentage < 70) {
+    categoryText = 'Growing';
     resultColor = 'bg-yellow-500';
     resultTips = [
-      "You have a good foundation, but there's room for improvement.",
-      "Plan a halal date night this week to reconnect.",
-      "Set aside 10 minutes each day for uninterrupted conversation."
+      "Your relationship has good potential but needs consistent nurturing.",
+      "Focus on improving your communication patterns during disagreements.",
+      "Implement a weekly check-in to discuss your relationship goals and challenges."
     ];
   } else {
     categoryText = 'Requires Attention';
     resultColor = 'bg-red-500';
     resultTips = [
-      "Your relationship needs immediate care and attention.",
-      "Try discussing one issue calmly this week, using the Prophet's (PBUH) example of patience.",
-      "Consider seeking guidance from an Islamic counselor."
+      "Your relationship needs immediate care and dedicated attention.",
+      "Start with small, consistent steps to rebuild trust and communication.",
+      "Consider seeking guidance from an Islamic counselor to address underlying issues."
     ];
   }
   
@@ -170,10 +179,11 @@ const AssessmentResults = () => {
           </h3>
           
           <p className="mb-6 text-muted-foreground dark:text-mawaddah-gold/70">
-            Based on your responses, your relationship has {
-              percentage >= 80 ? 'very strong foundations' :
-              percentage >= 50 ? 'good potential but needs nurturing' :
-              'areas that need immediate attention'
+            Based on your responses, your relationship {
+              percentage >= 85 ? 'demonstrates exemplary qualities that reflect true Islamic values' :
+              percentage >= 70 ? 'has very strong foundations built on mutual respect and love' :
+              percentage >= 50 ? 'shows good potential but needs consistent nurturing in key areas' :
+              'has several areas that require immediate attention and care'
             }.
           </p>
         </div>

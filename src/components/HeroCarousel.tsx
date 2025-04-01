@@ -9,7 +9,7 @@ const slides = [
     id: 1,
     title: "Discover Your Couple Health",
     subtitle: "Take Our Free Assessment!",
-    image: "https://images.unsplash.com/photo-1606333259602-77e7b4bb39e6?auto=format&fit=crop&q=80&w=1470",
+    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=1470",
     cta: {
       text: "Start Now",
       link: "/assessment"
@@ -19,7 +19,7 @@ const slides = [
     id: 2,
     title: "Get Personalized Tips",
     subtitle: "To Rekindle Your Love",
-    image: "https://images.unsplash.com/photo-1492176273113-2d51f47b23b0?auto=format&fit=crop&q=80&w=1633",
+    image: "https://images.unsplash.com/photo-1511407397940-d57f68e81203?auto=format&fit=crop&q=80&w=1587",
     cta: {
       text: "Learn More",
       link: "/about"
@@ -29,7 +29,7 @@ const slides = [
     id: 3,
     title: "Unlock a Full Report",
     subtitle: "To Deepen Your Connection",
-    image: "https://images.unsplash.com/photo-1629615140233-276a5fb7b6f7?auto=format&fit=crop&q=80&w=1587",
+    image: "https://images.unsplash.com/photo-1597926661974-69a26ffa0f08?auto=format&fit=crop&q=80&w=1587",
     cta: {
       text: "See How",
       link: "/faq"
