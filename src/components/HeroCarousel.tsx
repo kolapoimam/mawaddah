@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart } from 'lucide-react';
@@ -9,7 +8,7 @@ const slides = [
     id: 1,
     title: "Discover Your Couple Health",
     subtitle: "Take Our Free Assessment!",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=1470",
+    image: "https://unsplash.com/photos/a-person-walking-on-a-beach-with-palm-trees-in-the-background-ZM_lJADrDfU",
     cta: {
       text: "Start Now",
       link: "/assessment"
@@ -19,7 +18,7 @@ const slides = [
     id: 2,
     title: "Get Personalized Tips",
     subtitle: "To Rekindle Your Love",
-    image: "https://images.unsplash.com/photo-1511407397940-d57f68e81203?auto=format&fit=crop&q=80&w=1587",
+    image: "https://unsplash.com/photos/person-wearing-gold-and-red-bracelets-J6-016hv6Ys",
     cta: {
       text: "Learn More",
       link: "/about"
@@ -29,7 +28,7 @@ const slides = [
     id: 3,
     title: "Unlock a Full Report",
     subtitle: "To Deepen Your Connection",
-    image: "https://images.unsplash.com/photo-1597926661974-69a26ffa0f08?auto=format&fit=crop&q=80&w=1587",
+    image: "https://unsplash.com/photos/man-sitting-beside-woman-WjIJHzca3jQ",
     cta: {
       text: "See How",
       link: "/faq"
@@ -41,7 +40,6 @@ const HeroCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   
   useEffect(() => {
-    // Auto-rotate slides
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
@@ -63,7 +61,6 @@ const HeroCarousel = () => {
   
   return (
     <div className="relative h-[500px] md:h-[600px] w-full overflow-hidden">
-      {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -72,7 +69,6 @@ const HeroCarousel = () => {
             activeSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
           )}
         >
-          {/* Image with overlay */}
           <div className="absolute inset-0 z-0">
             <img
               src={slide.image}
@@ -82,7 +78,6 @@ const HeroCarousel = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-mawaddah-dark/80 to-mawaddah-dark/30"></div>
           </div>
           
-          {/* Content */}
           <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
             <div className="animate-fade-in">
               <h2 className="calligraphy-heading text-4xl md:text-5xl lg:text-6xl text-white mb-2">
@@ -121,7 +116,6 @@ const HeroCarousel = () => {
         </div>
       ))}
       
-      {/* Navigation arrows */}
       <button
         onClick={goToPrevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/30 text-white hover:bg-black/50 focus:outline-none"
@@ -163,7 +157,6 @@ const HeroCarousel = () => {
         </svg>
       </button>
       
-      {/* Navigation dots */}
       <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center space-x-3">
         {slides.map((_, index) => (
           <button
