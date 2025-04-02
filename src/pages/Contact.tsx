@@ -57,8 +57,8 @@ const Contact = () => {
                     <Mail className="flex-shrink-0 w-6 h-6 text-mawaddah-gold mr-3 mt-0.5" />
                     <div>
                       <h3 className="font-semibold text-mawaddah-pink-light">Email</h3>
-                      <a href="mailto:info@usemawaddah.com" className="text-white hover:text-mawaddah-gold transition-colors">
-                        info@usemawaddah.com
+                      <a href="mailto:mail@mawaddah.com" className="text-white hover:text-mawaddah-gold transition-colors">
+                        mail@mawaddah.com
                       </a>
                     </div>
                   </div>
