@@ -29,7 +29,7 @@ const Faq = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="mailto:info@usemawaddah.com" 
+                href="mailto:mail@mawaddah.com" 
                 className="btn-primary inline-block"
               >
                 Email Us
