@@ -24,4 +24,3 @@ export default defineConfig(({ mode }) => ({
     "process.env.VERCEL_ANALYTICS_ID": JSON.stringify(process.env.VERCEL_ANALYTICS_ID || ""),
   },
 }));
-}));
