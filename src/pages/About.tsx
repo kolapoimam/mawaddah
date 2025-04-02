@@ -15,7 +15,7 @@ const About = () => {
             
             <div className="prose prose-lg dark:prose-invert mx-auto">
               <img 
-                src="https://images.unsplash.com/photo-1601231378142-e543a478ed38?w=1200&auto=format&fit=crop&q=80"
+                src="https://www.pexels.com/photo/couple-holding-hands-over-table-4046987/?w=1200&auto=format&fit=crop&q=80"
                 alt="African Muslim couple" 
                 className="w-full h-64 object-cover rounded-xl shadow-md mb-10"
               />
