@@ -17,8 +17,8 @@ const Footer = () => {
             </p>
             <div className="flex items-center text-mawaddah-pink">
               <Mail size={16} className="mr-2" />
-              <a href="mailto:info@usemawaddah.com" className="text-sm hover:text-mawaddah-gold transition-colors">
-                info@usemawaddah.com
+              <a href="mailto:mail@mawaddah.com" className="text-sm hover:text-mawaddah-gold transition-colors">
+                mail@mawaddah.com
               </a>
             </div>
           </div>
