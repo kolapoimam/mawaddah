@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
@@ -12,13 +11,28 @@ const CallToAction = () => {
           <p className="text-lg mb-8 text-muted-foreground dark:text-mawaddah-gold/70">
             Take the free couple health assessment today.
           </p>
-          <Link to="/assessment" className="btn-primary text-lg px-8 py-3">
-            Get Started Now
-          </Link>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link 
+              to="/assessment" 
+              className="btn-primary text-lg px-8 py-3"
+            >
+              Get Started Now
+            </Link>
+            <a 
+              href="https://paystack.com/pay/mawaddah"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-8 py-3 bg-mawaddah-gold text-background font-medium rounded-md hover:bg-opacity-90 transition-colors duration-200 text-lg"
+            >
+              Donate
+            </a>
+          </div>
         </div>
       </div>
     </section>
   );
 };
+
+export default CallToAction;
 
 export default CallToAction;
