@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MawaddahLogo from './MawaddahLogo';
@@ -32,6 +31,14 @@ const Header = () => {
           <Link to="/contact" className="text-foreground hover:text-mawaddah-gold transition-colors">
             Contact
           </Link>
+          <a 
+            href="https://paystack.com/pay/mawaddah"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 py-2 bg-mawaddah-gold text-background font-medium rounded-md hover:bg-opacity-90 transition-colors duration-200"
+          >
+            Donate
+          </a>
           <ThemeToggle />
         </nav>
         
@@ -103,6 +110,15 @@ const Header = () => {
             >
               Contact
             </Link>
+            <a 
+              href="https://paystack.com/pay/mawaddah"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-4 py-2 bg-mawaddah-gold text-background font-medium rounded-md hover:bg-opacity-90 transition-colors duration-200 text-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Donate
+            </a>
           </div>
         </div>
       )}
