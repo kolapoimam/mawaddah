@@ -16,9 +16,9 @@ const EducationalSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Column 1 */}
-          <div className="bg-white dark:bg-mawaddah-green-dark rounded-xl p-6 shadow-lg text-center transition-transform hover:scale-105">
+          <div className="card-surface p-6 text-center transition-transform duration-300 hover:-translate-y-1">
             <div className="flex justify-center mb-4">
-              <div className="p-3 rounded-full bg-mawaddah-pink/20 dark:bg-mawaddah-gold/20">
+              <div className="p-3 rounded-full bg-mawaddah-pink-light dark:bg-mawaddah-green">
                 <Heart className="w-8 h-8 text-primary dark:text-mawaddah-gold" />
               </div>
             </div>
@@ -29,9 +29,9 @@ const EducationalSection = () => {
           </div>
           
           {/* Column 2 */}
-          <div className="bg-white dark:bg-mawaddah-green-dark rounded-xl p-6 shadow-lg text-center transition-transform hover:scale-105">
+          <div className="card-surface p-6 text-center transition-transform duration-300 hover:-translate-y-1">
             <div className="flex justify-center mb-4">
-              <div className="p-3 rounded-full bg-mawaddah-pink/20 dark:bg-mawaddah-gold/20">
+              <div className="p-3 rounded-full bg-mawaddah-pink-light dark:bg-mawaddah-green">
                 <Moon className="w-8 h-8 text-primary dark:text-mawaddah-gold" />
               </div>
             </div>
@@ -42,9 +42,9 @@ const EducationalSection = () => {
           </div>
           
           {/* Column 3 */}
-          <div className="bg-white dark:bg-mawaddah-green-dark rounded-xl p-6 shadow-lg text-center transition-transform hover:scale-105">
+          <div className="card-surface p-6 text-center transition-transform duration-300 hover:-translate-y-1">
             <div className="flex justify-center mb-4">
-              <div className="p-3 rounded-full bg-mawaddah-pink/20 dark:bg-mawaddah-gold/20">
+              <div className="p-3 rounded-full bg-mawaddah-pink-light dark:bg-mawaddah-green">
                 <Lightbulb className="w-8 h-8 text-primary dark:text-mawaddah-gold" />
               </div>
             </div>

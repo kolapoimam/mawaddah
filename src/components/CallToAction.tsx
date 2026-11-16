@@ -1,30 +1,26 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { Heart } from "lucide-react";
+import { DONATE_URL } from "@/lib/site";
 
 const CallToAction = () => {
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-mawaddah-pink/50 to-white dark:from-mawaddah-green-dark/80 dark:to-mawaddah-green-dark">
+    <section className="bg-mawaddah-pink px-4 py-16 dark:bg-mawaddah-green-dark md:py-20">
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="calligraphy-heading text-3xl md:text-4xl mb-4 text-primary dark:text-mawaddah-gold">
-            Ready to Nurture Your Love?
-          </h2>
-          <p className="text-lg mb-8 text-muted-foreground dark:text-mawaddah-gold/70">
-            Take the free couple health assessment today.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link 
-              to="/assessment" 
-              className="btn-primary text-lg px-8 py-3"
-            >
+        <div className="mx-auto max-w-3xl text-center">
+          <Heart className="mx-auto mb-4 animate-heartbeat text-primary dark:text-mawaddah-gold" size={36} fill="currentColor" />
+          <h2 className="section-title">Ready to Nurture Your Love?</h2>
+          <p className="section-subtitle mb-8">Take the free couple health assessment today.</p>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Link to="/assessment" className="btn-primary px-8 text-lg">
               Get Started Now
             </Link>
-            <a 
-              href="https://paystack.com/pay/mawaddah"
+            <a
+              href={DONATE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-3 bg-mawaddah-gold text-background font-medium rounded-md hover:bg-opacity-90 transition-colors duration-200 text-lg"
+              className="btn-secondary px-8 text-lg"
             >
-              Donate
+              Support with a Donation
             </a>
           </div>
         </div>

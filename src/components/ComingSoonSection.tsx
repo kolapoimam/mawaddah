@@ -39,12 +39,9 @@ const ComingSoonSection = () => {
           {upcomingFeatures.map((feature, index) => (
             <div 
               key={index}
-              className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/10 relative overflow-hidden group"
+              className="bg-mawaddah-green-dark rounded-xl p-6 border border-white/10 relative overflow-hidden"
             >
-              {/* Pulse effect in the background */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-mawaddah-gold/20 rounded-full animate-ping"></div>
-              
-              <h3 className="text-lg font-semibold mb-3 text-mawaddah-gold relative z-10">
+              <h3 className="text-lg font-semibold mb-3 pr-24 text-mawaddah-gold relative z-10">
                 {feature.title}
               </h3>
               <p className="text-mawaddah-pink-light relative z-10">
@@ -52,7 +49,7 @@ const ComingSoonSection = () => {
               </p>
               
               {/* Coming Soon Badge */}
-              <div className="absolute top-2 right-2 bg-mawaddah-gold text-mawaddah-dark text-xs font-bold px-2 py-1 rounded-full transform rotate-12">
+              <div className="absolute top-4 right-4 bg-mawaddah-gold text-mawaddah-dark text-xs font-bold px-2.5 py-1 rounded-full rotate-6">
                 Coming Soon
               </div>
             </div>
@@ -60,11 +57,14 @@ const ComingSoonSection = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <div className="inline-block bg-mawaddah-gold/20 rounded-lg p-4 max-w-md">
-            <p className="text-mawaddah-gold font-semibold mb-1">Stay Tuned!</p>
+          <div className="inline-block bg-mawaddah-green-dark border border-white/10 rounded-xl p-5 max-w-md">
+            <p className="text-mawaddah-gold font-semibold mb-1">Want to help build these?</p>
             <p className="text-sm text-mawaddah-pink-light">
-              We're continuously developing new features to help strengthen your marriage. 
-              Check back often or subscribe to our newsletter for updates.
+              Mawaddah is open source. Pick a feature, open an issue, or send a pull request on{" "}
+              <a href="https://github.com/kolapoimam/mawaddah" target="_blank" rel="noopener noreferrer" className="underline hover:text-mawaddah-gold">
+                GitHub
+              </a>
+              .
             </p>
           </div>
         </div>

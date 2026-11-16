@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { images } from '@/data/images';
+import SafeImage from './SafeImage';
 
 const IntroSection = () => {
   return (
@@ -6,22 +8,23 @@ const IntroSection = () => {
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="calligraphy-heading text-3xl md:text-4xl mb-6 text-primary dark:text-mawaddah-gold">
-            Welcome to Mawaddah – Nurturing Muslim Marriages with Love
+            Welcome to Mawaddah. Nurturing Muslim Marriages with Love
           </h2>
           <p className="text-lg mb-8 text-muted-foreground dark:text-mawaddah-gold/70">
             A free, Islamically grounded tool to help couples assess and strengthen their relationship.
           </p>
           
           <div className="relative mb-10">
-            <div className="relative bg-mawaddah-pink/20 dark:bg-mawaddah-green-light/10 rounded-2xl p-8 shadow-inner">
+            <div className="relative bg-mawaddah-pink-light dark:bg-mawaddah-green-dark rounded-2xl p-6 md:p-8 border border-mawaddah-pink-dark/40 dark:border-mawaddah-green-light/20">
               <p className="text-foreground dark:text-mawaddah-gold-light">
-                Mawaddah is here to support Muslim couples in building a blessed marriage filled with love and mercy, as inspired by the Quran (Ar-Rum 30:21). Our free couple health assessment helps you understand your relationship's strengths and areas for growth. Get a basic report instantly, and unlock a detailed report for deeper insights—all without needing to sign up. Whether you're newlyweds or celebrating years together, Mawaddah guides you with Islamic principles and practical advice.
+                Mawaddah is here to support Muslim couples in building a blessed marriage filled with love and mercy, as inspired by the Quran (Ar-Rum 30:21). Our free couple health assessment helps you understand your relationship's strengths and areas for growth. Get your score instantly, with a detailed report for every area of your marriage, all without needing to sign up. Whether you're newlyweds or celebrating years together, Mawaddah guides you with Islamic principles and practical advice.
               </p>
               <div className="mt-8">
-                <img 
-                  src="https://images.unsplash.com/photo-1610216705738-6b60e5f4e1f8?auto=format&fit=crop&q=80&w=800" 
-                  alt="African Muslim couple walking together" 
-                  className="w-full h-48 md:h-64 object-cover rounded-xl shadow-md"
+                <SafeImage
+                  src={images.couplePortrait}
+                  alt="Smiling Muslim couple"
+                  loading="lazy"
+                  className="w-full h-56 md:h-80 object-cover object-top rounded-xl shadow-md"
                 />
               </div>
             </div>

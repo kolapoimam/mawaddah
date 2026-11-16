@@ -1,125 +1,108 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import MawaddahLogo from './MawaddahLogo';
-import ThemeToggle from './ThemeToggle';
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { Heart, Menu, X } from "lucide-react";
+import MawaddahLogo from "./MawaddahLogo";
+import ThemeToggle from "./ThemeToggle";
+import { DONATE_URL } from "@/lib/site";
+import { cn } from "@/lib/utils";
+
+const links = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/faq", label: "FAQ" },
+  { to: "/contact", label: "Contact" },
+];
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-  
+  const { pathname } = useLocation();
+
+  // Close the mobile menu after navigating
+  useEffect(() => setMobileMenuOpen(false), [pathname]);
+
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    cn(
+      "relative py-1 font-medium transition-colors hover:text-mawaddah-gold",
+      isActive
+        ? "text-primary dark:text-mawaddah-gold after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-mawaddah-gold"
+        : "text-foreground"
+    );
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm border-b shadow-sm">
-      <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-6">
-        <Link to="/" className="flex-shrink-0">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 shadow-sm backdrop-blur-sm">
+      <div className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
+        <Link to="/" className="flex-shrink-0" aria-label="Mawaddah home">
           <MawaddahLogo />
         </Link>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-foreground hover:text-mawaddah-gold transition-colors">
-            Home
-          </Link>
-          <Link to="/about" className="text-foreground hover:text-mawaddah-gold transition-colors">
-            About
-          </Link>
-          <Link to="/faq" className="text-foreground hover:text-mawaddah-gold transition-colors">
-            FAQ
-          </Link>
-          <Link to="/contact" className="text-foreground hover:text-mawaddah-gold transition-colors">
-            Contact
-          </Link>
-          <a 
-            href="https://paystack.com/pay/mawaddah"
+
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
+          {links.map((link) => (
+            <NavLink key={link.to} to={link.to} end className={linkClass}>
+              {link.label}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
+          <a
+            href={DONATE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 bg-mawaddah-gold text-background font-medium rounded-md hover:bg-opacity-90 transition-colors duration-200"
+            className="inline-flex items-center rounded-full border border-mawaddah-gold px-4 py-2 font-medium text-primary transition-colors hover:bg-mawaddah-gold hover:text-mawaddah-dark dark:text-mawaddah-gold dark:hover:text-mawaddah-dark"
           >
+            <Heart size={16} className="mr-1.5" />
             Donate
           </a>
-          <ThemeToggle />
-        </nav>
-        
-        {/* Mobile Menu Button */}
+          <Link to="/assessment" className="btn-primary py-2">
+            Start Assessment
+          </Link>
+        </div>
+
         <div className="flex items-center md:hidden">
           <ThemeToggle />
           <button
-            className="ml-4 text-foreground hover:text-primary focus:outline-none"
-            onClick={toggleMobileMenu}
+            className="ml-3 rounded-full p-2 text-foreground hover:bg-muted"
+            onClick={() => setMobileMenuOpen((open) => !open)}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
             aria-label="Toggle menu"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {mobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
-      
-      {/* Mobile Menu */}
+
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background border-b">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link 
-              to="/"
-              className="block px-4 py-2 text-foreground hover:bg-muted rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
+        <div id="mobile-menu" className="border-b bg-background md:hidden">
+          <nav className="container mx-auto flex flex-col gap-1 px-4 py-4" aria-label="Mobile">
+            {links.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end
+                className={({ isActive }) =>
+                  cn(
+                    "rounded-lg px-4 py-3 font-medium",
+                    isActive ? "bg-mawaddah-pink-light text-primary dark:bg-mawaddah-green dark:text-mawaddah-gold" : "hover:bg-muted"
+                  )
+                }
+              >
+                {link.label}
+              </NavLink>
+            ))}
+            <Link to="/assessment" className="btn-primary mt-3 text-center">
+              Start Assessment
             </Link>
-            <Link 
-              to="/about"
-              className="block px-4 py-2 text-foreground hover:bg-muted rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link 
-              to="/faq"
-              className="block px-4 py-2 text-foreground hover:bg-muted rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              FAQ
-            </Link>
-            <Link 
-              to="/contact" 
-              className="block px-4 py-2 text-foreground hover:bg-muted rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <a 
-              href="https://paystack.com/pay/mawaddah"
+            <a
+              href={DONATE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-4 py-2 bg-mawaddah-gold text-background font-medium rounded-md hover:bg-opacity-90 transition-colors duration-200 text-center"
-              onClick={() => setMobileMenuOpen(false)}
+              className="mt-2 rounded-full border border-mawaddah-gold px-4 py-3 text-center font-medium text-primary dark:text-mawaddah-gold"
             >
               Donate
             </a>
-          </div>
+          </nav>
         </div>
       )}
     </header>

@@ -14,6 +14,8 @@ export type AssessmentQuestion = {
     sometimes: number;
     rarely: number;
   };
+  /** Only ask this question when another question has a given answer */
+  showIf?: { questionId: number; value: string };
 };
 
 export const assessmentQuestions: AssessmentQuestion[] = [
@@ -65,10 +67,10 @@ export const assessmentQuestions: AssessmentQuestion[] = [
   {
     id: 5,
     category: "demographics",
-    question: "If yes, how many children do you have?",
+    question: "How many children do you have?",
     answerType: "options",
+    showIf: { questionId: 4, value: "yes" },
     options: [
-      { value: "none", text: "None" },
       { value: "1", text: "1" },
       { value: "2", text: "2" },
       { value: "3", text: "3" },

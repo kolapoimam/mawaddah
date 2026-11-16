@@ -1,0 +1,219 @@
+# Mawaddah
+
+> Mawaddah is a free, open source couple health assessment for Muslim couples, married or engaged. It scores six areas of marriage (Communication, Spiritual Connection, Conflict Resolution, Shared Goals, Emotional Intimacy, Financial Harmony) and gives a full report with practical steps and a reminder from the Quran or Sunnah for each area. Results can be downloaded as PNG or PDF. It runs entirely in the browser with no sign up, and answers are never stored on a server.
+
+Key facts:
+- Name: Mawaddah, from the Arabic word for affection or love between spouses in Quran 30:21 ("He placed between you affection (mawaddah) and mercy (rahmah)")
+- Website: https://mawaddah-beta.vercel.app
+- Price: free, including the full report. Optional donations support the project
+- Time: about 5 minutes
+- Privacy: no account, no email needed, answers stay in the browser tab
+- Creator: Kolapo Imam (https://kolapo.ng)
+- Source code: https://github.com/kolapoimam/mawaddah (MIT License)
+- It is a guidance tool and does not replace a scholar, counselor or family elders
+
+## Main pages
+
+- [Couple Health Assessment](https://mawaddah-beta.vercel.app/assessment): The assessment starts with a few questions about you (gender, years married or engaged, age group, children, living situation, income group), which are not scored. It then asks 16 scored questions across six areas. Each answer scores 1, 3 or 5 points. Results show an overall percentage and a percentage for each area.
+- [About](https://mawaddah-beta.vercel.app/about): Mawaddah combines practical relationship insight with Islamic teaching. It is rooted in Islamic values, respectful of cultural diversity, practical, private, and accessible to all Muslims. It is open source under the MIT License.
+- [FAQ](https://mawaddah-beta.vercel.app/faq): Answers to common questions about Mawaddah, its privacy, cost, scoring and who it is for.
+- [Privacy](https://mawaddah-beta.vercel.app/privacy): Assessment answers stay on your device and are cleared when the tab closes. No account or email is needed. Anonymous page view analytics only.
+
+## More detail
+
+- [Full reference for AI assistants](https://mawaddah-beta.vercel.app/llms-full.txt): every question, the scoring rules, guidance per area and all FAQ answers
+
+## Open source
+
+- [GitHub repository](https://github.com/kolapoimam/mawaddah): React, TypeScript, Tailwind CSS, Vite
+- [Contributing guide](https://github.com/kolapoimam/mawaddah/blob/main/CONTRIBUTING.md)
+
+## Optional
+
+- [Sitemap](https://mawaddah-beta.vercel.app/sitemap.xml)
+
+---
+
+# Mawaddah full reference
+
+## Pages
+
+- https://mawaddah-beta.vercel.app/
+  Mawaddah | Free Couple Health Assessment for Muslim Couples
+  Mawaddah is a free couple health assessment for Muslim couples. Answer a few honest questions and get a score, a full report on communication, faith, conflict, goals, emotions and money, with Islamic guidance you can download as PNG or PDF. Private, no sign up.
+- https://mawaddah-beta.vercel.app/assessment
+  Muslim Couple Health Assessment (Free, 5 Minutes) | Mawaddah
+  How healthy is our marriage? Take Mawaddah's free Islamic couple health assessment. About 20 questions on communication, praying together, conflict, shared goals, emotional support and money. No sign up.
+- https://mawaddah-beta.vercel.app/about
+  About Mawaddah | Love and Mercy in Muslim Marriage
+  Why Mawaddah exists, the meaning of its name from Quran 30:21, and the principles behind its Islamic approach to couple health.
+- https://mawaddah-beta.vercel.app/faq
+  FAQ | Mawaddah Couple Health Assessment
+  Is Mawaddah free? Is my data private? Can we take it together? Answers to common questions about the Mawaddah couple health assessment.
+- https://mawaddah-beta.vercel.app/contact
+  Contact Mawaddah
+  Send a message, share feedback, or suggest a feature for Mawaddah.
+- https://mawaddah-beta.vercel.app/privacy
+  Privacy Policy | Mawaddah
+  Mawaddah runs in your browser. Your answers are never sent to or stored on a server.
+
+## How scoring works
+
+- Questions in the "demographics" category describe the couple and are not scored.
+- Every other question is worth up to 5 points: 5 for the healthiest answer, 3 for the middle answer, 1 for the lowest.
+- Overall score = points earned divided by points possible, as a percentage.
+- Each of the six areas gets its own percentage the same way.
+- Overall labels: Exemplary (85% and above), Strong (70% to 84%), Growing (50% to 69%), Requires Attention (below 50%).
+- Area labels in the full report: Strong (80% and above), Growing (60% to 79%), Needs care (below 60%).
+- The report highlights the lowest scoring area as the place to start.
+
+## Questions
+
+1. [demographics] What is your gender?
+   Answers: Male, Female
+2. [demographics] How long have you been married/engaged?
+   Answers: Less than 1 year, 1-5 years, 5-10 years, 10+ years
+3. [demographics] What is your age group?
+   Answers: 18-25, 26-35, 36-45, 46+
+4. [demographics] Do you have children?
+   Answers: Yes, No
+5. [demographics] How many children do you have? [only asked if question 4 is "yes"]
+   Answers: 1, 2, 3, 4+
+6. [demographics] What are your living conditions?
+   Answers: Living together, Living apart due to work or family, Living with extended family
+7. [demographics] What is your earning class?
+   Answers: Low income, Middle income, Upper income
+8. [communication] How often do you discuss your feelings openly with your partner?
+   Answers: Always (5), Sometimes (3), Rarely (1)
+9. [communication] Do you feel heard when you share your thoughts?
+   Answers: Always (5), Sometimes (3), Rarely (1)
+10. [communication] How frequently do you and your partner discuss your future together?
+   Answers: Often (5), Occasionally (3), Rarely (1)
+11. [spiritual] Do you pray together regularly?
+   Answers: Yes (5), Sometimes (3), No (1)
+12. [spiritual] How often do you make dua for your relationship?
+   Answers: Daily (5), Weekly (3), Rarely (1)
+13. [spiritual] Do you study or discuss Islamic topics together?
+   Answers: Always (5), Sometimes (3), Rarely (1)
+14. [conflict] How do you handle disagreements?
+   Answers: Calmly (5), With tension (3), Avoid them (1)
+15. [conflict] Do you resolve conflicts within a day?
+   Answers: Always (5), Sometimes (3), Rarely (1)
+16. [conflict] Do you approach conflicts with the intention to understand rather than win?
+   Answers: Always (5), Sometimes (3), Rarely (1)
+17. [goals] Do you have aligned goals for your future?
+   Answers: Yes (5), Somewhat (3), No (1)
+18. [goals] How often do you spend quality time together?
+   Answers: Daily (5), Weekly (3), Rarely (1)
+19. [goals] Do you support each other's personal growth and ambitions?
+   Answers: Always (5), Sometimes (3), Rarely (1)
+20. [emotional] Do you feel emotionally supported by your partner?
+   Answers: Always (5), Sometimes (3), Rarely (1)
+21. [emotional] Do you express appreciation and gratitude to each other regularly?
+   Answers: Always (5), Sometimes (3), Rarely (1)
+22. [financial] Do you agree on financial decisions?
+   Answers: Always (5), Sometimes (3), Rarely (1)
+23. [financial] Do you have open discussions about money without conflict?
+   Answers: Always (5), Sometimes (3), Rarely (1)
+
+## Guidance by area
+
+### Communication
+
+How openly you share feelings, listen, and talk about your future.
+
+- Strong (80% and above): You talk openly and feel heard. This is the foundation everything else rests on. Steps: Keep a weekly check in where each of you shares one high and one low. Plan one long term goal together this month.
+- Growing (60% to 79%): You communicate well on good days, but some feelings and plans stay unspoken. Steps: Try 10 minutes a day without phones to talk about your day. When your spouse speaks, repeat back what you heard before replying.
+- Needs care (below 60%): Important thoughts are going unsaid or unheard. Small daily conversations can change this quickly. Steps: Start with one honest, gentle conversation this week about how you both feel. Agree on a calm signal for when either of you needs to pause and listen.
+- Reminder: "And speak to people good words." (Quran 2:83)
+
+### Spiritual Connection
+
+Praying together, making dua for each other, and learning about the deen as a couple.
+
+- Strong (80% and above): Your faith is something you share, not just something you each practise alone. Steps: Pick a short surah to memorise together this month. Make a habit of praying one sunnah prayer together.
+- Growing (60% to 79%): Faith is present in your home, but you could share more of it together. Steps: Pray at least one salah together each day. Make dua for each other by name, and tell each other you did.
+- Needs care (below 60%): Your spiritual lives are running on separate tracks. Shared worship is a gentle place to reconnect. Steps: Begin with one prayer together this week, even if it is short. Read a few ayat with translation together after Maghrib.
+- Reminder: "May Allah have mercy on a man who gets up at night and prays, and wakes his wife." (Sunan Abi Dawud 1308)
+
+### Conflict Resolution
+
+How you handle disagreements and how quickly you return to peace.
+
+- Strong (80% and above): You disagree without damaging the relationship and make peace quickly. Steps: Keep resolving issues the same day, before you sleep. Share what helped you through your last disagreement.
+- Growing (60% to 79%): Most disagreements get resolved, but some leave tension that lingers. Steps: Agree to take a short break when voices rise, then come back within the hour. Use 'I feel' sentences instead of 'you always'.
+- Needs care (below 60%): Conflicts are either heated or avoided. Learning to pause and listen will help you both feel safe. Steps: When angry, change your position, sit down, make wudu, then talk. If things feel stuck, involve a trusted elder or counselor from each side (Quran 4:35).
+- Reminder: "A man said to the Prophet ﷺ, advise me. He said: Do not become angry. He repeated it several times." (Sahih al-Bukhari 6116)
+
+### Shared Goals
+
+Whether your plans for the future line up and you spend quality time together.
+
+- Strong (80% and above): You are building the same life and making time for each other along the way. Steps: Write down three goals for the next year and review them together quarterly. Celebrate each other's wins, big and small.
+- Growing (60% to 79%): Your goals mostly overlap, but quality time or shared planning sometimes slips. Steps: Set a regular halal date night and protect it. Ask each other: where do you see us in five years?
+- Needs care (below 60%): You may be heading in different directions. Sitting down to plan together will bring you closer. Steps: Spend 30 minutes this week listing what each of you wants for your family. Find one activity you both enjoy and do it together weekly.
+- Reminder: "They are clothing for you and you are clothing for them." (Quran 2:187)
+
+### Emotional Intimacy
+
+Feeling supported, appreciated and emotionally close.
+
+- Strong (80% and above): You feel supported and appreciated. That warmth is a blessing to protect. Steps: Keep thanking each other for the small things. Leave a short note or message of appreciation once a week.
+- Growing (60% to 79%): There is care between you, but it is not always expressed or felt. Steps: Tell your spouse one thing you appreciate about them every day. Ask: what is one thing I can do this week to support you?
+- Needs care (below 60%): One or both of you may feel unseen. Simple, regular appreciation can make a big difference. Steps: Start with a smile and a kind word each morning. Smiling at your brother is charity (Tirmidhi 1956). Set aside time to listen to each other without trying to fix anything.
+- Reminder: "The best of you are those who are best to their families, and I am the best of you to my family." (Jami at-Tirmidhi 3895)
+
+### Financial Harmony
+
+Agreeing on money decisions and talking about finances without conflict.
+
+- Strong (80% and above): Money is a topic you handle as a team, not a source of tension. Steps: Review your budget together once a month. Plan a shared sadaqah goal for the year.
+- Growing (60% to 79%): You mostly agree on money, but some conversations still feel uncomfortable. Steps: Agree on a spending limit that needs a joint decision. Set one savings goal you are both excited about.
+- Needs care (below 60%): Money is causing strain. A clear, shared plan will reduce worry for both of you. Steps: Sit down together and write out your monthly income and expenses, without blame. Agree on the essentials first: rent, food, children, debts, then everything else.
+- Reminder: "And those who, when they spend, are neither wasteful nor stingy, but hold a just balance between them." (Quran 25:67)
+
+## Frequently asked questions
+
+### What is Mawaddah?
+
+Mawaddah is a free tool for Muslim couples to assess their relationship health and receive Islamically grounded advice. Named after the Arabic word for 'abundant love' mentioned in the Quran (30:21), our platform helps couples nurture their bond with love and mercy.
+
+### Do I need to sign up?
+
+No. You can take the assessment and see your full report without signing up or sharing an email. We believe relationship support should be accessible without barriers.
+
+### Is the assessment really free?
+
+Yes. The assessment and the full detailed report are completely free. If Mawaddah benefits you, you can support the project with a donation, but it is never required.
+
+### How is my data protected?
+
+We prioritize your privacy. The assessment runs entirely in your browser and your answers are never sent to or stored on a server. Your result is kept only in your browser tab and disappears when you close it.
+
+### What if my score is low?
+
+A low score doesn't mean your relationship is doomed. You'll receive targeted tips to address specific areas that need improvement. We believe every relationship can grow with the right guidance and effort. More support features, like counselor connections, are coming soon. If things feel serious, please speak to a trusted scholar or a qualified counselor.
+
+### How long does the assessment take?
+
+The assessment takes about 5 minutes to complete. We've designed it to be thorough yet concise, respecting your time while gathering meaningful insights about your relationship.
+
+### Can we take the assessment together as a couple?
+
+Yes! In fact, we encourage couples to take the assessment together. It can open up valuable conversations and provide a shared understanding of your relationship dynamics.
+
+### Is Mawaddah only for married couples?
+
+Mawaddah is designed for both married and engaged Muslim couples. If you're engaged, the assessment can help you identify areas to discuss before marriage. If you're married, it can help strengthen your existing bond.
+
+### What topics does the assessment cover?
+
+The assessment covers key relationship areas including communication, spiritual connection, conflict resolution, shared goals, emotional intimacy, and financial harmony. These are fundamental aspects that contribute to a healthy Islamic marriage.
+
+### How often should we take the assessment?
+
+We recommend taking the assessment every 3-6 months to track your progress and identify new areas for growth. Relationships evolve, and regular check-ins can help you stay connected and address emerging challenges.
+
+### Is Mawaddah open source?
+
+Yes. Mawaddah is open source under the MIT License. Anyone can read the code, suggest better questions, or contribute features on GitHub at github.com/kolapoimam/mawaddah.

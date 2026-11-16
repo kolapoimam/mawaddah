@@ -21,7 +21,7 @@ const Index = () => {
         <AssessmentOverview />
         <ComingSoonSection />
         <TestimonialsSection />
-        <FaqSection />
+        <FaqSection limit={6} />
         <CallToAction />
       </main>
       <Footer />
