@@ -1,6 +1,9 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SafeImage from '@/components/SafeImage';
+import { images } from '@/data/images';
+import { REPO_URL } from '@/lib/site';
 
 const About = () => {
   return (
@@ -14,10 +17,10 @@ const About = () => {
             </h1>
             
             <div className="prose prose-lg dark:prose-invert mx-auto">
-              <img 
-                src="https://www.pexels.com/photo/couple-holding-hands-over-table-4046987?w=1200&auto=format&fit=crop&q=80"
-                alt="African Muslim couple" 
-                className="w-full h-64 object-cover rounded-xl shadow-md mb-10"
+              <SafeImage
+                src={images.holdingHands}
+                alt="Couple holding hands across a table"
+                className="w-full h-64 md:h-80 object-cover rounded-xl shadow-md mb-10 not-prose"
               />
               
               <h2 className="text-primary dark:text-mawaddah-gold text-center mt-12 mb-6">Our Story</h2>
@@ -35,7 +38,7 @@ const About = () => {
                 Mawaddah combines psychological insights with Islamic teachings to offer a holistic approach to relationship health. Our assessments and recommendations are designed with the following principles in mind:
               </p>
               
-              <ul className="space-y-4 mb-10">
+              <ul className="space-y-2 mb-10 list-disc pl-6">
                 <li>Rooted in Islamic values and teachings</li>
                 <li>Respectful of cultural diversity within the Muslim community</li>
                 <li>Practical and applicable to everyday life</li>
@@ -45,17 +48,18 @@ const About = () => {
               
               <h2 className="text-primary dark:text-mawaddah-gold text-center mt-12 mb-6">Looking Forward</h2>
               <p className="text-justify mb-8">
-                We're continuously working to expand our offerings to better serve the Muslim community. In the future, we plan to introduce more resources, including counseling services, community forums, and a mobile app to make our tools even more accessible.
+                We're continuously working to expand our offerings to better serve the Muslim community. In the future, we plan to introduce more resources, including counseling services, community forums, and a mobile app to make our tools even more accessible. Mawaddah is open source, so anyone can help build these on{" "}
+                <a href={REPO_URL} target="_blank" rel="noopener noreferrer" className="text-primary dark:text-mawaddah-gold font-semibold">GitHub</a>.
               </p>
               
               <p className="text-justify mb-10">
                 At Mawaddah, we believe that a strong marriage is a cornerstone of a healthy society. By helping couples nurture their relationships, we hope to contribute to stronger families and communities.
               </p>
               
-              <div className="bg-mawaddah-pink/20 dark:bg-mawaddah-gold/10 p-6 rounded-lg mt-12">
+              <div className="bg-mawaddah-pink-light dark:bg-mawaddah-green-dark border border-mawaddah-pink-dark/40 dark:border-mawaddah-green-light/20 p-6 rounded-xl mt-12">
                 <p className="italic text-center">
                   "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy. Indeed in that are signs for a people who give thought." <br />
-                  <span className="font-semibold mt-2 block">- Quran 30:21</span>
+                  <span className="font-semibold mt-2 block">Quran 30:21</span>
                 </p>
               </div>
             </div>

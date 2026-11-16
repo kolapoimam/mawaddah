@@ -1,130 +1,98 @@
+import { useState } from "react";
+import { Github, Mail, MapPin, Send } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { useToast } from "@/hooks/use-toast";
+import { CONTACT_EMAIL, REPO_URL } from "@/lib/site";
 
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { useToast } from '@/hooks/use-toast';
+const inputClass =
+  "w-full rounded-md border border-muted bg-white p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-mawaddah-gold dark:border-mawaddah-green-light/20 dark:bg-mawaddah-green dark:text-mawaddah-gold-light";
 
+/**
+ * There is no backend, so the form opens the visitor's email app with the message filled in.
+ */
 const Contact = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [sending, setSending] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const { toast } = useToast();
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSending(true);
-    
-    // Simulate sending the message
-    setTimeout(() => {
-      setSending(false);
-      toast({
-        title: "Message Sent",
-        description: "Thank you for reaching out! We'll get back to you soon.",
-        duration: 5000,
-      });
-      
-      // Reset form
-      setName('');
-      setEmail('');
-      setMessage('');
-    }, 1500);
+    const subject = `Mawaddah message from ${name}`;
+    const body = `${message}\n\nFrom: ${name} <${email}>`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    toast({
+      title: "Opening your email app",
+      description: `Your message is ready to send to ${CONTACT_EMAIL}.`,
+      duration: 5000,
+    });
   };
-  
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-grow py-12 px-4">
+      <main className="flex-grow px-4 py-12">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h1 className="calligraphy-heading text-3xl md:text-4xl mb-4 text-primary dark:text-mawaddah-gold">
-              Contact Us
-            </h1>
-            <p className="text-lg text-muted-foreground dark:text-mawaddah-gold/70">
-              We'd love to hear from you! Feel free to reach out with any questions or feedback.
-            </p>
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <h1 className="section-title">Contact Us</h1>
+            <p className="section-subtitle">We'd love to hear from you! Feel free to reach out with any questions or feedback.</p>
           </div>
-          
-          <div className="max-w-5xl mx-auto bg-white dark:bg-mawaddah-green-dark shadow-lg rounded-xl overflow-hidden">
+
+          <div className="card-surface mx-auto max-w-5xl overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-5">
-              {/* Contact Info */}
-              <div className="lg:col-span-2 bg-mawaddah-green dark:bg-mawaddah-green-light/10 text-white p-6 md:p-8">
-                <h2 className="text-2xl font-semibold mb-6 text-mawaddah-gold">Get in Touch</h2>
-                
+              <div className="islamic-pattern bg-mawaddah-green p-6 text-white dark:bg-mawaddah-green-light/10 md:p-8 lg:col-span-2">
+                <h2 className="mb-6 text-2xl font-semibold text-mawaddah-gold">Get in Touch</h2>
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <Mail className="flex-shrink-0 w-6 h-6 text-mawaddah-gold mr-3 mt-0.5" />
+                    <Mail className="mr-3 mt-0.5 h-6 w-6 flex-shrink-0 text-mawaddah-gold" />
                     <div>
                       <h3 className="font-semibold text-mawaddah-pink-light">Email</h3>
-                      <a href="mailto:mail@mawaddah.com" className="text-white hover:text-mawaddah-gold transition-colors">
-                        mail@mawaddah.com
+                      <a href={`mailto:${CONTACT_EMAIL}`} className="text-white transition-colors hover:text-mawaddah-gold">
+                        {CONTACT_EMAIL}
                       </a>
                     </div>
                   </div>
-                  
                   <div className="flex items-start">
-                    <Phone className="flex-shrink-0 w-6 h-6 text-mawaddah-gold mr-3 mt-0.5" />
+                    <Github className="mr-3 mt-0.5 h-6 w-6 flex-shrink-0 text-mawaddah-gold" />
                     <div>
-                      <h3 className="font-semibold text-mawaddah-pink-light">Phone</h3>
-                      <a href="tel:+2347000000000" className="text-white hover:text-mawaddah-gold transition-colors">
-                        +234 700 000 0000
+                      <h3 className="font-semibold text-mawaddah-pink-light">Feedback and ideas</h3>
+                      <a
+                        href={`${REPO_URL}/issues/new/choose`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white transition-colors hover:text-mawaddah-gold"
+                      >
+                        Open an issue on GitHub
                       </a>
                     </div>
                   </div>
-                  
                   <div className="flex items-start">
-                    <MapPin className="flex-shrink-0 w-6 h-6 text-mawaddah-gold mr-3 mt-0.5" />
+                    <MapPin className="mr-3 mt-0.5 h-6 w-6 flex-shrink-0 text-mawaddah-gold" />
                     <div>
-                      <h3 className="font-semibold text-mawaddah-pink-light">Address</h3>
-                      <address className="not-italic text-white">
-                        Lagos, Nigeria
-                      </address>
+                      <h3 className="font-semibold text-mawaddah-pink-light">Based in</h3>
+                      <address className="not-italic text-white">Nigeria</address>
                     </div>
                   </div>
                 </div>
-                
-                <div className="mt-10 pt-6 border-t border-white/10">
-                  <h3 className="font-semibold text-mawaddah-pink-light mb-4">Working Hours</h3>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex justify-between">
-                      <span>Monday - Friday:</span>
-                      <span>9:00 AM - 5:00 PM</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Saturday:</span>
-                      <span>10:00 AM - 2:00 PM</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Sunday:</span>
-                      <span>Closed</span>
-                    </li>
-                  </ul>
-                </div>
+                <p className="mt-10 border-t border-white/10 pt-6 text-sm text-mawaddah-pink-light">
+                  We usually reply within a few days, in sha Allah. For urgent marriage concerns, please speak to a trusted
+                  scholar or a qualified counselor near you.
+                </p>
               </div>
-              
-              {/* Contact Form */}
-              <div className="lg:col-span-3 p-6 md:p-8">
-                <h2 className="text-2xl font-semibold mb-6 text-primary dark:text-mawaddah-gold">Send Us a Message</h2>
-                
+
+              <div className="p-6 md:p-8 lg:col-span-3">
+                <h2 className="mb-6 text-2xl font-semibold text-primary dark:text-mawaddah-gold">Send Us a Message</h2>
                 <form onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-1 text-primary dark:text-mawaddah-gold">
+                      <label htmlFor="name" className="mb-1 block text-sm font-medium text-primary dark:text-mawaddah-gold">
                         Name
                       </label>
-                      <input
-                        id="name"
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                        className="w-full p-3 border border-muted dark:border-mawaddah-green-light/20 rounded-md focus:outline-none focus:ring-2 focus:ring-mawaddah-gold"
-                        placeholder="Your name"
-                      />
+                      <input id="name" value={name} onChange={(e) => setName(e.target.value)} required className={inputClass} placeholder="Your name" />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-1 text-primary dark:text-mawaddah-gold">
+                      <label htmlFor="email" className="mb-1 block text-sm font-medium text-primary dark:text-mawaddah-gold">
                         Email
                       </label>
                       <input
@@ -133,14 +101,13 @@ const Contact = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="w-full p-3 border border-muted dark:border-mawaddah-green-light/20 rounded-md focus:outline-none focus:ring-2 focus:ring-mawaddah-gold"
+                        className={inputClass}
                         placeholder="Your email"
                       />
                     </div>
                   </div>
-                  
                   <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium mb-1 text-primary dark:text-mawaddah-gold">
+                    <label htmlFor="message" className="mb-1 block text-sm font-medium text-primary dark:text-mawaddah-gold">
                       Message
                     </label>
                     <textarea
@@ -148,32 +115,16 @@ const Contact = () => {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       required
-                      rows={5}
-                      className="w-full p-3 border border-muted dark:border-mawaddah-green-light/20 rounded-md focus:outline-none focus:ring-2 focus:ring-mawaddah-gold"
+                      rows={6}
+                      className={inputClass}
                       placeholder="Your message"
-                    ></textarea>
+                    />
                   </div>
-                  
-                  <button
-                    type="submit"
-                    disabled={sending}
-                    className="btn-primary inline-flex items-center"
-                  >
-                    {sending ? (
-                      <>
-                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-mawaddah-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2" size={18} />
-                        Send Message
-                      </>
-                    )}
+                  <button type="submit" className="btn-primary inline-flex items-center">
+                    <Send className="mr-2 h-4 w-4" />
+                    Send Message
                   </button>
+                  <p className="mt-3 text-xs text-muted-foreground dark:text-mawaddah-gold/60">This opens your email app with your message ready to send.</p>
                 </form>
               </div>
             </div>

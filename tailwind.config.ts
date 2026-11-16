@@ -1,5 +1,6 @@
 
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -137,10 +138,10 @@ export default {
 				'pulse': 'pulse 2s infinite'
 			},
 			fontFamily: {
-				'arabic': ['Scheherazade New', 'serif'],
-				'montserrat': ['Montserrat', 'sans-serif']
+				'arabic': ['"Scheherazade New"', 'Georgia', 'serif'],
+				'montserrat': ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif']
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindcssAnimate],
 } satisfies Config;

@@ -5,8 +5,8 @@ const AssessmentOverview = () => {
   const steps = [
     {
       number: 1,
-      title: "Answer 15+ Questions",
-      description: "Take a quick assessment covering communication, spirituality, and more.",
+      title: "Answer 20+ Questions",
+      description: "A short assessment covering communication, spirituality, conflict, goals, emotions and money.",
       icon: "📝"
     },
     {
@@ -23,9 +23,9 @@ const AssessmentOverview = () => {
     },
     {
       number: 4,
-      title: "Unlock More",
-      description: "Pay to unlock a full report, delivered to your email, with detailed insights and recommendations.",
-      icon: "✉️"
+      title: "Get the Full Report",
+      description: "See every area of your marriage in detail, with actions, a Quranic reminder, and a PNG or PDF to keep.",
+      icon: "📄"
     }
   ];
   
@@ -45,7 +45,7 @@ const AssessmentOverview = () => {
           {steps.map((step) => (
             <div 
               key={step.number}
-              className="bg-white dark:bg-mawaddah-green-dark rounded-lg shadow-lg p-6 border border-muted dark:border-mawaddah-green-light/20"
+              className="card-surface p-6 transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="flex justify-center mb-4">
                 <div className="w-12 h-12 rounded-full bg-mawaddah-gold flex items-center justify-center text-mawaddah-dark text-xl font-semibold">
@@ -64,7 +64,7 @@ const AssessmentOverview = () => {
         </div>
         
         <div className="mt-10 text-center">
-          <Link to="/assessment" className="btn-primary inline-block">
+          <Link to="/assessment" className="btn-primary">
             Start the Assessment
           </Link>
         </div>

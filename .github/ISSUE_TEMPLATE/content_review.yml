@@ -1,0 +1,22 @@
+name: Content review
+description: Suggest a change to a question, score, tip, ayah or hadith
+labels: ["content"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Which question or text?
+      placeholder: e.g. Conflict Resolution reminder, or question "Do you pray together regularly?"
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Suggested change
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source or reasoning
+      description: For religious content please include a reference (surah and ayah, or hadith collection and number).

@@ -1,6 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -96,13 +94,41 @@
 }
 
 .glass-card {
-  @apply bg-white/80 dark:bg-mawaddah-green-dark/80 backdrop-blur-sm shadow-lg;
+  @apply bg-white dark:bg-mawaddah-green-dark shadow-lg;
 }
 
 .btn-primary {
-  @apply bg-mawaddah-gold hover:bg-mawaddah-gold-dark text-mawaddah-dark font-semibold py-3 px-6 rounded-full transition-all shadow-md hover:shadow-lg;
+  @apply inline-flex items-center justify-center bg-mawaddah-gold hover:bg-mawaddah-gold-dark text-mawaddah-dark font-semibold py-3 px-6 rounded-full transition-all shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center bg-white dark:bg-mawaddah-green text-primary dark:text-mawaddah-gold border border-mawaddah-green/20 dark:border-mawaddah-gold/30 font-semibold py-3 px-6 rounded-full transition-all hover:bg-mawaddah-pink-light dark:hover:bg-mawaddah-green-light;
+}
+
+.section-title {
+  @apply calligraphy-heading text-3xl md:text-4xl mb-4 text-primary dark:text-mawaddah-gold;
+}
+
+.section-subtitle {
+  @apply text-lg text-muted-foreground dark:text-mawaddah-gold/70;
+}
+
+.card-surface {
+  @apply bg-white dark:bg-mawaddah-green-dark rounded-xl shadow-lg border border-muted dark:border-mawaddah-green-light/20;
+}
+
+:focus-visible {
+  @apply outline-none ring-2 ring-mawaddah-gold ring-offset-2 ring-offset-background;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .btn-accent {
-  @apply bg-mawaddah-pink hover:bg-mawaddah-pink-dark text-mawaddah-dark font-semibold py-3 px-6 rounded-full transition-all shadow-md hover:shadow-lg;
+  @apply inline-flex items-center justify-center bg-mawaddah-pink hover:bg-mawaddah-pink-dark text-mawaddah-dark font-semibold py-3 px-6 rounded-full transition-all shadow-md hover:shadow-lg;
 }
